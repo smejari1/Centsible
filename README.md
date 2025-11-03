@@ -1,18 +1,27 @@
-# Centsible:
-A personal finance app with multiple features like tracking a user’s spending amount.
-# React + Vite
+# Centsible 💰🎉
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Centsible** is a fun, student-friendly personal finance app that helps you track spending, save smarter, and split expenses with friends — all while keeping it lighthearted and interactive!  
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## **Features**
 
-## React Compiler
+- **Track Spending & Saving:** Log your daily expenses or savings.  
+- **Streaks & Badges 🏆:** Get rewards and confetti animations for consecutive savings!  
+- **Split Bills with Friends 🤝:** Easily divide expenses and see how much everyone owes.  
+- **Fun Finance Tips & Facts 📝:** Cute, relatable advice for students, like "Walk instead of Uber" or "The average college student spends $X per week on coffee ☕".  
+- **Emoji Support 😎🎉:** Add emojis to your transactions to make it fun.  
+- **Transaction History & Clear Button 🗑️:** View past transactions and clear history when needed.  
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## **Installation & Setup**
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/Centsible.git
+cd Centsible/latest
+npm install
+npm run dev
+http://localhost:5173/
