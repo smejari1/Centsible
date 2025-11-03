@@ -1,0 +1,146 @@
+/* Global styles */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fdf6e3; /* light cream background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.app-container {
+  max-width: 800px;
+  width: 95%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* App Title */
+.app-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #5a4e3c;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* Cards for sections */
+.card {
+  background-color: #fff8f0;
+  padding: 20px;
+  margin-bottom: 25px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #7c3aed;
+}
+
+/* Input fields */
+.input-field {
+  width: 90%;
+  padding: 10px 15px;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Buttons */
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 10px 25px;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.1s ease-in-out;
+}
+
+.btn.add {
+  background-color: #7c3aed;
+  color: white;
+}
+
+.btn.clear {
+  background-color: #f87171;
+  color: white;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* Transaction and split history */
+.history {
+  margin-top: 15px;
+  width: 100%;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: #f3f4f6;
+  padding: 10px 15px;
+  margin-top: 8px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  gap: 10px;
+}
+
+/* Streak badge and hint */
+.streak-text {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #7c3aed; /* purple accent */
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+/* Fun facts section */
+.fun-facts {
+  background-color: #fffbf0;
+  padding: 15px 20px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #4b3b2a;
+  margin-bottom: 20px;
+}
+
+.fun-facts p {
+  margin: 8px 0;
+}
+
+/* Make emoji selector bigger */
+select {
+  font-size: 1.2rem;
+  padding: 8px 12px;
+  border-radius: 10px;
+  text-align: center;
+}

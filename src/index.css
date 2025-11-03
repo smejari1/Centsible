@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom global styles */
+body {
+  @apply bg-gradient-to-br from-purple-100 via-pink-100 to-yellow-100;
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-extrabold text-center;
+}
+
+input, select, button {
+  @apply text-center text-lg;
+}
+
+/* Scrollbar styling for transaction list */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-200 rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-purple-400 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-purple-600;
+}
+
+
