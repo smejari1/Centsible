@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import StreakBadge from "./components/streakbadge";
 import FunFacts from "./components/FunFacts";
+import MysteryItem from "./components/MysteryItem";
 
 function App() {
   const [transactions, setTransactions] = useState([]);
@@ -9,42 +10,67 @@ function App() {
   const [amount, setAmount] = useState("");
   const [description, setDescription] = useState("");
   const [people, setPeople] = useState(1);
-  const [transactionType, setTransactionType] = useState("Save"); // Save/Spend dropdown
+  const [transactionType, setTransactionType] = useState("Save");
   const [streak, setStreak] = useState(0);
-  const [showBonus, setShowBonus] = useState(false); // Visual streak bonus
+  const [showBonus, setShowBonus] = useState(false);
+
+  // Currency converter states
+  const [usdAmount, setUsdAmount] = useState("");
+  const [converted, setConverted] = useState(null);
+  const [currency, setCurrency] = useState("INR");
+
+  const rates = {
+    INR: 83.12,
+    EUR: 0.93,
+    JPY: 152.75,
+    MXN: 19.05,
+  };
+
+  const easterEggs = {
+    1: "🥳 Just 1! Every penny counts!",
+    18: "🎓 UNC Status Achieved! Congrats!",
+    42: "🌌 42 → The Answer to Life, the Universe, and Everything!",
+    67: "😎 Lucky 67! Feeling silly today!",
+    1000: "💰 Whoa! Big spender alert!",
+  };
+
+  // Convert Currency
+  const convertCurrency = () => {
+    if (!usdAmount || usdAmount <= 0) return;
+
+    const message = easterEggs[parseInt(usdAmount)];
+    if (message) setConverted(message);
+    else setConverted((parseFloat(usdAmount) * rates[currency]).toFixed(2));
+  };
 
   // Add transaction
   const handleAddTransaction = () => {
     if (!amount || !description) return;
 
-    const newTransaction = {
+    const transaction = {
       amount: parseFloat(amount),
       description,
       type: transactionType,
     };
 
-    setTransactions([...transactions, newTransaction]);
+    setTransactions([...transactions, transaction]);
 
-    // Only update streak for saves
     if (transactionType === "Save") {
       const newStreak = streak + 1;
       setStreak(newStreak);
 
-      // Show streak bonus visually every 3 saves
       if (newStreak % 3 === 0) {
         setShowBonus(true);
-        setTimeout(() => setShowBonus(false), 2000); // hide after 2 seconds
+        setTimeout(() => setShowBonus(false), 2000);
       }
     }
 
-    // Reset inputs
     setAmount("");
     setDescription("");
     setPeople(1);
     setTransactionType("Save");
   };
 
-  // Clear transaction history
   const handleClearTransactions = () => {
     setTransactions([]);
     setStreak(0);
@@ -53,9 +79,11 @@ function App() {
   // Split money
   const handleSplit = () => {
     if (!amount || people < 1) return;
+
     const splitAmount = parseFloat(amount) / people;
     const newSplit = { total: parseFloat(amount), perPerson: splitAmount, people };
     setSplitTransactions([...splitTransactions, newSplit]);
+
     setAmount("");
     setPeople(1);
   };
@@ -68,7 +96,6 @@ function App() {
 
       <StreakBadge streak={streak} />
 
-      {/* Streak bonus message */}
       {showBonus && (
         <div className="streak-bonus">
           🎉 Streak Bonus! Keep Saving! 🎉
@@ -114,7 +141,9 @@ function App() {
           {transactions.map((t, i) => (
             <div className="history-item" key={i}>
               <span>{t.description}</span>
-              <span>{t.type === "Save" ? "💰" : "💸"} ${t.amount.toFixed(2)}</span>
+              <span>
+                {t.type === "Save" ? "💰" : "💸"} ${t.amount.toFixed(2)}
+              </span>
             </div>
           ))}
         </div>
@@ -156,7 +185,51 @@ function App() {
         </div>
       </div>
 
+      {/* Fun Facts */}
       <FunFacts />
+
+      {/* Mystery Item */}
+      <MysteryItem />
+
+      {/* Currency Converter with Easter Eggs */}
+      <div className="card">
+        <h2 className="card-title">Currency Converter</h2>
+        <input
+          className="input-field"
+          type="number"
+          placeholder="Amount in USD"
+          value={usdAmount}
+          onChange={(e) => setUsdAmount(e.target.value)}
+        />
+
+        <select
+          className="input-field"
+          value={currency}
+          onChange={(e) => setCurrency(e.target.value)}
+        >
+          <option value="INR">Indian Rupees (₹)</option>
+          <option value="EUR">Euros (€)</option>
+          <option value="JPY">Japanese Yen (¥)</option>
+          <option value="MXN">Mexican Pesos (₱)</option>
+        </select>
+
+        {!converted ? (
+          <button className="btn add" onClick={convertCurrency}>
+            Convert
+          </button>
+        ) : (
+          <div className="mystery-result">
+            <p className="mystery-item">
+              {["67", "1", "1000", "42", "18"].includes(usdAmount)
+                ? converted
+                : `💱 ${usdAmount} USD = ${converted} ${currency}`}
+            </p>
+            <button className="btn clear" onClick={() => setConverted(null)}>
+              Try Again
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
