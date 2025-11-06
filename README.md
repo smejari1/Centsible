@@ -21,7 +21,15 @@
 
 ```bash
 git clone https://github.com/yourusername/Centsible.git
+
+2. Navigate into the project directory
 cd Centsible/latest
+
+3. Install dependencies 
 npm install
+
+4. Start the development server
 npm run dev
+
+5. Open in your browser
 http://localhost:5173/
