@@ -15,20 +15,48 @@
 
 ---
 
+## **Live Demo**
+
+🌐 **Try it now:** [https://smejari1.github.io/Centsible/](https://smejari1.github.io/Centsible/)
+
+---
+
 ## **Installation & Setup**
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/Centsible.git
+git clone https://github.com/smejari1/Centsible.git
+```
 
 2. Navigate into the project directory
+```bash
 cd Centsible/latest
+```
 
 3. Install dependencies 
+```bash
 npm install
+```
 
 4. Start the development server
+```bash
 npm run dev
+```
 
 5. Open in your browser
+```
 http://localhost:5173/
+```
+
+---
+
+## **Deployment**
+
+This app is automatically deployed to GitHub Pages using GitHub Actions. The deployment workflow triggers on every push to the `main` branch.
+
+**Build manually:**
+```bash
+npm run build
+```
+
+The app will be available at: https://smejari1.github.io/Centsible/
